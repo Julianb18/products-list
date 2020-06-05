@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -14,37 +13,24 @@ class ProductDetails extends React.Component {
     prevSlug: "",
   };
 
-  componentDidMount() {
-    let currentProduct = this.props.productsData.find((product) => {
+  findCorrectProducts = (array) => {
+    let currentProduct = array.find((product) => {
       return product.slug === this.props.match.params.slug;
     });
-    let index = this.props.productsData.indexOf(currentProduct);
+    let index = array.indexOf(currentProduct);
     this.setState({
       product: currentProduct,
-      nextSlug:
-        this.props.productsData[index + 1] &&
-        this.props.productsData[index + 1].slug,
-      prevSlug:
-        this.props.productsData[index - 1] &&
-        this.props.productsData[index - 1].slug,
+      nextSlug: array[index + 1] && array[index + 1].slug,
+      prevSlug: array[index - 1] && array[index - 1].slug,
     });
+  };
+  componentDidMount() {
+    this.findCorrectProducts(this.props.productsData);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.slug !== this.props.match.params.slug) {
-      let currentProduct = this.props.productsData.find((product) => {
-        return product.slug === this.props.match.params.slug;
-      });
-      let index = this.props.productsData.indexOf(currentProduct);
-      this.setState({
-        product: currentProduct,
-        nextSlug:
-          this.props.productsData[index + 1] &&
-          this.props.productsData[index + 1].slug,
-        prevSlug:
-          this.props.productsData[index - 1] &&
-          this.props.productsData[index - 1].slug,
-      });
+      this.findCorrectProducts(this.props.productsData);
     }
   }
   goPreviousPage = () => {
@@ -87,7 +73,7 @@ class ProductDetails extends React.Component {
           <div className="btnContainer">
             <div>
               {this.state.prevSlug && (
-                <a href="#" onClick={this.goPrevProduct}>
+                <a href="/#" onClick={this.goPrevProduct}>
                   <FontAwesomeIcon icon={faArrowLeft} />
                   <span>Previous</span>
                 </a>
@@ -95,7 +81,7 @@ class ProductDetails extends React.Component {
             </div>
             <div>
               {this.state.nextSlug && (
-                <a href="#" onClick={this.goNextProduct}>
+                <a href="/#" onClick={this.goNextProduct}>
                   <span>Next</span>
                   <FontAwesomeIcon icon={faArrowRight} />
                 </a>
