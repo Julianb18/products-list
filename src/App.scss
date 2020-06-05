@@ -1,3 +1,5 @@
+$primary-color: rgb(26, 29, 66);
+
 .App {
   width: 100%;
   display: flex;
@@ -5,13 +7,14 @@
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
+  background: rgb(255, 255, 255);
 }
 .products {
   width: 80%;
   span {
     font-size: 0.8rem;
     color: gray;
-    background-color: rgb(140, 201, 252);
+    background-color: rgb(162, 251, 159);
     font-weight: normal;
     height: 21px;
     display: inline-block;
@@ -23,7 +26,7 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(65, 138, 221);
+    background-color: $primary-color;
     color: white;
     min-height: 30px;
     align-items: center;
@@ -40,33 +43,37 @@
   justify-content: space-between;
   padding: 20px;
   height: 60px;
-  background-color: gainsboro;
+  background-color: rgb(218, 218, 218);
   border-bottom: 1px solid gray;
   color: rgb(51, 51, 51);
+  margin-top: 10px;
+  border-radius: 15px;
 }
 
 .details > * {
   margin-bottom: 10px;
 }
 .details {
-  width: 70vw;
-  height: 95vh;
+  width: 70%;
+  height: 95%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: rgb(65, 138, 221);
+  background-color: $primary-color;
   padding: 20px;
-  border-radius: 1vh;
+  border-radius: 15px;
+  color: white;
   &-title {
     display: flex;
     align-items: center;
   }
   &-img {
     width: 38%;
-    border-radius: 1vh;
+    border-radius: 15px;
   }
   &-description {
-    height: 170px;
+    margin: 20px 0;
+    line-height: 1.4rem;
   }
   .btnContainer {
     display: flex;
@@ -75,6 +82,7 @@
   &-price {
     font-weight: bold;
     font-size: 1.5rem;
+    margin-top: 30px;
   }
   a {
     font-size: 1.5rem;
@@ -94,6 +102,7 @@
   background: none;
   font-size: 2.2rem;
   cursor: pointer;
+  color: white;
   svg {
     height: 30px;
   }
@@ -117,14 +126,14 @@ h1 {
   justify-content: center;
   align-items: center;
   &-header {
-    background-color: rgb(65, 138, 221);
+    background-color: $primary-color;
     width: 100%;
     height: 40vh;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 1vh;
+    border-radius: 15px;
     margin-bottom: 2vh;
     &-title {
       color: white;
@@ -132,12 +141,12 @@ h1 {
     }
     &-nav {
       background-color: white;
-      color: rgb(65, 138, 221);
+      color: $primary-color;
       font-weight: bold;
       font-size: 1.8rem;
       height: 60px;
       width: 250px;
-      border-radius: 1vh;
+      border-radius: 15px;
     }
   }
   .top-products {
@@ -148,11 +157,11 @@ h1 {
 
     a {
       width: 48.3%;
-      color: rgb(65, 138, 221);
+      color: $primary-color;
       height: 20vh;
       margin: 15px 0px;
-      border-radius: 1vh;
-      border: 2px solid rgb(65, 138, 221);
+      border-radius: 15px;
+      border: 2px solid $primary-color;
       .top {
         height: 100%;
         width: 100%;
@@ -162,7 +171,7 @@ h1 {
         &-price {
           width: 70px;
           height: 70px;
-          background-color: rgb(65, 138, 221);
+          background-color: $primary-color;
           position: absolute;
           color: white;
           display: flex;
@@ -173,7 +182,7 @@ h1 {
           right: -4%;
           top: -15%;
           border: 2px solid white;
-          box-shadow: 0px 0px 5px rgb(65, 138, 221);
+          box-shadow: 0px 0px 5px $primary-color;
           transform: rotate(-15deg);
         }
       }
@@ -190,7 +199,7 @@ h1 {
     width: 30%;
     height: 50px;
     font-weight: bold;
-    background-color: rgb(65, 138, 221);
+    background-color: $primary-color;
     font-size: 1.1rem;
     color: white;
     display: inline-block;
@@ -203,24 +212,24 @@ h1 {
     width: 30%;
     height: 50px;
     font-weight: bold;
-    background-color: rgb(65, 138, 221);
+    background-color: $primary-color;
     font-size: 1.1rem;
     color: white;
   }
   .reset {
-    color: rgb(65, 138, 221);
+    color: $primary-color;
     background-color: white;
-    border: 2px solid rgb(65, 138, 221);
+    border: 2px solid $primary-color;
   }
 }
 
 label {
-  color: rgb(65, 138, 221);
+  color: $primary-color;
   font-weight: bold;
   font-size: 1.3rem;
 }
 #filter {
-  border: 2px solid rgb(65, 138, 221);
+  border: 2px solid $primary-color;
   width: 30%;
   height: 2.5vw;
   margin: 10px;

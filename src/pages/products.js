@@ -161,7 +161,7 @@ class Products extends React.Component {
                     className="product"
                     whileHover={{
                       boxShadow: "0px 0px 5px gray",
-                      backgroundColor: "rgb(128, 128, 128)",
+                      backgroundColor: "rgb(140, 150, 170)",
                       color: "rgb(255, 255, 255)",
                     }}
                     custom={i}
