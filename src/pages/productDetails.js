@@ -58,7 +58,7 @@ class ProductDetails extends React.Component {
           <div className="details-title">
             <button
               onClick={this.goPreviousPage}
-              className="details-title-button move"
+              className="details-title-button back"
             >
               <FontAwesomeIcon icon={faAngleLeft} />
             </button>

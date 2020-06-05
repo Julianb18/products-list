@@ -6,19 +6,8 @@ import {
   faArrowUp,
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
-import queryString from "query-string";
 
-const listItemVariants = {
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.05,
-    },
-  }),
-  hidden: { opacity: 0, y: -100 },
-};
+import queryString from "query-string";
 
 const sortProducts = (products, sortingOrder) => {
   if (sortingOrder === "asc")
@@ -71,36 +60,27 @@ class Products extends React.Component {
     return (
       <>
         <div className="sort">
-          <motion.button
+          <button
             name="reset"
             className="sort-button reset"
             onClick={() => this.setSortingOrder()}
-            initial={{ translateY: -100 }}
-            animate={{ translateY: 0 }}
-            transition={{ duration: 1 }}
           >
             Reset
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             name="asc"
             className="sort-button"
             onClick={() => this.setSortingOrder("asc")}
-            initial={{ translateX: -100 }}
-            animate={{ translateX: 0 }}
-            transition={{ duration: 0.7 }}
           >
             Sort <FontAwesomeIcon icon={faArrowUp} />
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             name="dsc"
             className="sort-button"
             onClick={() => this.setSortingOrder("dsc")}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.7 }}
           >
             Sort <FontAwesomeIcon icon={faArrowDown} />
-          </motion.button>
+          </button>
         </div>
 
         <label htmlFor="filter">Filter by name or description</label>
@@ -111,10 +91,10 @@ class Products extends React.Component {
           value={this.state.search}
           onChange={this.onChangeHandler}
         />
-        <motion.ul className="products">
-          <motion.div className="title">
+        <ul className="products">
+          <div className="title">
             <Link to="/">
-              <button className="move">
+              <button className="products-back">
                 <FontAwesomeIcon icon={faAngleLeft} />
               </button>
             </Link>
@@ -128,7 +108,7 @@ class Products extends React.Component {
                 ""
               )}
             </h1>
-          </motion.div>
+          </div>
           <div className="products-header">
             <div>Name</div>
             <div>Description</div>
@@ -157,28 +137,17 @@ class Products extends React.Component {
             .map(({ name, price, id, slug, shortDescription }, i) => {
               return (
                 <Link to={`/products/${slug}`} key={id}>
-                  <motion.li
-                    className="product"
-                    whileHover={{
-                      boxShadow: "0px 0px 5px gray",
-                      backgroundColor: "rgb(140, 150, 170)",
-                      color: "rgb(255, 255, 255)",
-                    }}
-                    custom={i}
-                    initial="hidden"
-                    animate="visible"
-                    variants={listItemVariants}
-                  >
+                  <li className="product">
                     <div className="product-name">{name}</div>
                     <div className="product-description">
                       {shortDescription}
                     </div>
                     <div className="product-price">{`$ ${price}`}</div>
-                  </motion.li>
+                  </li>
                 </Link>
               );
             })}
-        </motion.ul>
+        </ul>
       </>
     );
   }
